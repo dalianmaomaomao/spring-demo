@@ -12,6 +12,6 @@ import java.util.Optional;
  * Created by cj on 2018/8/13.
  */
 public interface User4Repository extends JpaRepository<User,Integer>{
-    Optional<User> findByNickNameLikeOrPwdLike(String nickName, String pwd);
+    List<User> findByNickNameLikeOrPwdLike(String nickName, String pwd);
     Optional<User> findByNickName(String nickName);
 }

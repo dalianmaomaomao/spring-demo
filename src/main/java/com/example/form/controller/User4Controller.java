@@ -53,8 +53,8 @@ public class User4Controller {
         if(StringUtils.isEmpty(key)){
             return Result1.getSuccess("您输入的关键字为空，显示所有用户",user4Repository.findAll());
         }
-        Optional<User> userOptional=user4Repository.findByNickNameLikeOrPwdLike("%"+key+"%","%"+key+"%");
-        return Result1.getSuccess("查找成功",userOptional);
+        List<User> list=user4Repository.findByNickNameLikeOrPwdLike("%"+key+"%","%"+key+"%");
+        return Result1.getSuccess("查找成功",list);
     }
     @PutMapping("/{id}/info")
     public Result1 updateUser(@PathVariable int id,@RequestParam String nickName){
