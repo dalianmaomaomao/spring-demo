@@ -19,34 +19,41 @@ import java.util.Optional;
 public class User4Controller {
     @Autowired
     User4Service user4Service;
+
     @GetMapping("/")
-    public Result1 getUser(){
+    public Result1 getUser() {
         return user4Service.getUser();
     }
+
     @PostMapping("/")
-    public Result1 createUser(@ModelAttribute User user){
-        String nickName=user.getNickName();
-        String pwd=user.getPwd();
-        return user4Service.createUser(nickName,pwd);
+    public Result1 createUser(@ModelAttribute User user) {
+        String nickName = user.getNickName();
+        String pwd = user.getPwd();
+        return user4Service.createUser(nickName, pwd);
     }
+
     @GetMapping("/{id}")
-    public Result1 findByID(@PathVariable int id){
+    public Result1 findByID(@PathVariable int id) {
         return user4Service.findByID(id);
     }
+
     @GetMapping("/search/")
-    public Result1 searchUser(@RequestParam String key){
-       return user4Service.searchUser(key);
+    public Result1 searchUser(@RequestParam String key) {
+        return user4Service.searchUser(key);
     }
+
     @PutMapping("/{id}/info")
-    public Result1 updateUser(@PathVariable int id,@RequestParam String nickName){
-        return user4Service.updateUser(id,nickName);
+    public Result1 updateUser(@PathVariable int id, @RequestParam String nickName) {
+        return user4Service.updateUser(id, nickName);
     }
+
     @PutMapping("/{id}/pwd")
-    public Result1 modifyPwd(@PathVariable int id,@RequestParam String oldPwd,@RequestParam String newPwd){
-        return user4Service.modifyPwd(id,oldPwd,newPwd);
+    public Result1 modifyPwd(@PathVariable int id, @RequestParam String oldPwd, @RequestParam String newPwd) {
+        return user4Service.modifyPwd(id, oldPwd, newPwd);
     }
+
     @DeleteMapping("/{id}")
-    public Result1 deleteUser(@PathVariable int id){
+    public Result1 deleteUser(@PathVariable int id) {
         return user4Service.deleteUser(id);
     }
 }
